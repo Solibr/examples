@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New person</title>
+</head>
+<body>
+
+<p th:text="${message.getMessage}">Text</p>
+<hr/>
+
+<!-- ссылки для thymeleaf обязательно указывать внутри @{} -->
+<!--  атрибутом th:object укажем, к полям какого объекта мы будем иметь доступ внутри формы  -->
+<form th:method="POST" th:action="@{/people}" th:object="${person}">
+    <label for="name">Name</label>
+
+<!--  *{} - упрощённый способ обращения к полям  -->
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+    <label for="age">Age</label>
+    <input type="text" th:field="*{age}" id="age"/>
+    <br/>
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email"/>
+    <br/><br/>
+
+    <!-- Если текста внутри тега не будет, важно, чтобы тег был одиночным. Иначе форма не появится -->
+    <input type="submit" value="Send shit"/>
+</form>
+
+
+</body>
+</html>

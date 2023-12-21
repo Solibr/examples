@@ -1,0 +1,4 @@
+server.port: 8080
+
+spring.profiles.active: all-default
+#spring.profiles.active: test4

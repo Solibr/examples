@@ -1,0 +1,1 @@
+Getting a list from yaml though ConfigurationProperties annotation

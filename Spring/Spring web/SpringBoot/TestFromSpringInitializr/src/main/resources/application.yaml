@@ -1,0 +1,10 @@
+server.port: 8082
+
+logging.level.root: info
+
+kafka:
+  server: localhost:9092
+  consumer-id: test
+
+string:
+  any-test2: first string from properties

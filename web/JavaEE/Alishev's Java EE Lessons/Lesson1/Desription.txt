@@ -1,0 +1,40 @@
+Порядок изучения проекта:
+
+lesson1 {
+    FirstServlet
+    firstJSP
+}
+
+lesson2 {
+    secondJSP
+    logic.MyLogic ? - похоже класс нужно будет разделить на 2 части
+}
+
+lesson3 - параметры{
+    secondJSP (вторая часть. Сделать из неё thirdJsp)
+    Часть MainServlet про парамерты (выделить в отдельный сервлет)
+}
+
+lesson4 - редирект и форвард {
+
+}
+
+RedirectServlet - Redirecting and Forwarding
+MainServlet - есть что-то про сессии
+SessionServlet
+ShopServlet
+    logic.Cart - что-то на данный момент есть в thirdJsp
+    logic.MyLogic ? - что-то про сессии
+cookies.SetCookieServlet
+cookies.GetCookieServlet
+cookies.DeleteCookiesServlet
+
+
+FormServlet
+firstForm.html
+PostRequestServlet
+
+DBConnection
+DBServlet
+DBPostServlet
+dbPost.html

@@ -1,0 +1,71 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+  <display-name>Archetype Created Web Application</display-name>
+
+  <!-- пример маппинга сервлета. Остальные севлеты связаны через аннотации к классам -->
+  <servlet>
+    <servlet-name>First</servlet-name>
+    <servlet-class>main.lesson1.FirstServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>First</servlet-name>
+    <url-pattern>/first</url-pattern>
+  </servlet-mapping>
+
+  <!-- Пример маппинга jsp файлов -->
+
+  <!-- Для файла firstJsp.jsp нет маппинга. Доступ к нему можно получить по URL /lesson1/firstJsp.jsp. Он соответствует пути внутри папки с приложением-->
+
+  <!-- Для файла secondJsp.jsp также сделать не получится, потому что файл находится в WEB-INF, к которой доступа нет. Маппинг нужно явно прописать -->
+  <servlet>
+    <servlet-name>SecondJSP</servlet-name>
+    <jsp-file>/WEB-INF/lesson2/secondJsp.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SecondJSP</servlet-name>
+    <url-pattern>/jsp2</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ThirdJSP</servlet-name>
+    <jsp-file>/WEB-INF/lesson3_parameters/thirdJsp.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ThirdJSP</servlet-name>
+    <url-pattern>/jsp3</url-pattern>
+  </servlet-mapping>
+
+  <!-- В данном случае видно, что мы можем на один серлет или jsp сделать два возможных url. Однако, нельзя по одному url делать два разных ресурса - будет ошибка, а сервер некорректно работать-->
+  <servlet>
+    <servlet-name>FWD</servlet-name>
+    <jsp-file>/WEB-INF/lesson4_redirectAndForward/forward.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FWD</servlet-name>
+    <url-pattern>/fwd</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FWD</servlet-name>
+    <url-pattern>/forward.jsp</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>RDR</servlet-name>
+    <jsp-file>/WEB-INF/lesson4_redirectAndForward/redirect.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RDR</servlet-name>
+    <url-pattern>/rdr</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RDR</servlet-name>
+    <url-pattern>/redirect.jsp</url-pattern>
+  </servlet-mapping>
+
+</web-app>

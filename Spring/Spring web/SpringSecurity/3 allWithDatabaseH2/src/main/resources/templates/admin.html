@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>Home page</title>
+</head>
+<body>
+
+<form th:action="@{/admin/add}" th:method="post">
+    <label for="username_id">Username</label>
+    <input type="text" name="username" id="username_id">
+    <input type="submit" value="upgrade to admin">
+</form>
+
+<br/>
+<br/>
+<br/>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="logout">
+</form>
+
+
+
+</body>
+</html>

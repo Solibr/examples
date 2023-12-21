@@ -1,0 +1,10 @@
+spring.datasource:
+  url: "jdbc:h2:tcp://localhost/C:/Users/Solibr/YandexDisk/IdeaProjects/Examples/Spring/Spring databases/SpringDataH2GeneratedValues/db/test" #"jdbc:h2:./db/test"
+  username: "sa"
+  password: ""
+
+spring.jpa.hibernate.ddl-auto: validate
+spring.jpa.show-sql: on
+
+
+  #"jdbc:h2:tcp://localhost/C:/Users/Solibr/YandexDisk/IdeaProjects/Examples/Spring/Spring databases/SpringDataH2GeneratedValues/db/test"

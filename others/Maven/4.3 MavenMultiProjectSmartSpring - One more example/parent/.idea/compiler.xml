@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="core" />
+        <module name="module1" />
+        <module name="submodule1" />
+        <module name="modules" />
+        <module name="core-interfaces" />
+        <module name="module2" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="module3" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="core" options="-parameters" />
+      <module name="core-interfaces" options="-parameters" />
+      <module name="module1" options="-parameters" />
+      <module name="module2" options="-parameters" />
+      <module name="module3" options="-parameters" />
+      <module name="modules" options="-parameters" />
+      <module name="secondParent" options="" />
+      <module name="submodule1" options="-parameters" />
+    </option>
+  </component>
+</project>

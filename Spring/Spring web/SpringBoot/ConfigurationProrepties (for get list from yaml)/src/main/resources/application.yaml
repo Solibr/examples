@@ -1,0 +1,11 @@
+some:
+  shit:
+    list:
+      - "/"
+      - "/register"
+
+
+
+#list:                # alternative - in this case in PermittedUrls @ConfigurationProperties shouldn't has a prefix
+#  - "/"
+#  - "/register"

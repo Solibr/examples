@@ -1,0 +1,7 @@
+# профили можно указывать в application.yaml, но нельзя указывать в "профильных" application-{profile}.yaml
+#spring.profiles.active: some         // при запсуке возникнет ошибка
+
+word: beatch
+
+# работает переопределение свойств. дефолтное значение "Banana" для val.2 значение будет изменено на это
+val.2: Boooooooobs

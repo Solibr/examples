@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>People list</title>
+</head>
+<body>
+
+<!-- что-то вроде цикла -->
+<div th:each="person : ${people}">
+
+<!--  динамическое формирование ссылок  -->
+    <a th:href="@{/people/{id}(id=${person.getId()})}" th:text="${person.getName()}">some person</a>
+</div>
+
+</body>
+</html>

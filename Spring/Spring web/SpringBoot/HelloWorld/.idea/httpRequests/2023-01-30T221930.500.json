@@ -1,0 +1,7 @@
+{
+  "timestamp": "2023-01-30T17:19:30.467+0000",
+  "status": 500,
+  "error": "Internal Server Error",
+  "message": "No converter found for return value of type: class dto.Some",
+  "path": "/shit"
+}

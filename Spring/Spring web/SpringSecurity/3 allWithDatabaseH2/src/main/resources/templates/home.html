@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Home page</title>
+    </head>
+    <body>
+        <h2 th:text="'Hello ' + ${username} + '!'">Hello world</h2>
+
+        <h3 th:text="'Your roles: ' + ${roles}"></h3>
+
+
+        <form th:action="@{/word}" th:method="post">
+            <label for="word">Word check</label>
+            <input type="text" name="word" id="word">
+            <input type="submit" value="check">
+        </form>
+
+        <br/>
+        <!--<form action="/logout" method="post">  // it also will work, but only if csrf disabled-->
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="logout">
+        </form>
+
+
+
+
+    </body>
+</html>
