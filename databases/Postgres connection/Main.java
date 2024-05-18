@@ -1,15 +1,18 @@
 import java.sql.*;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 
 	// next three url are equivalent (if psql server launched on this machine)
-	public static String url = "jdbc:postgresql:test";
+	public static String url = "jdbc:postgresql:postgres";
 	//public static String url = "jdbc:postgresql://localhost/test";
 	//public static String url = "jdbc:postgresql://localhost:5432/test";
 
-	private static String user = "skillbox";
-	private static String password = "skillbox";
+	private static String user = "postgres";
+	private static String password = "postgres";
+
+	private static Random random = new Random();
 
 
 	public static void main(String[] args) throws Exception {
@@ -18,6 +21,13 @@ public class Main {
 
 		Connection connection = DriverManager.getConnection(url, user, password); // if database not exists on specified url, it will be created
 		Statement statement = connection.createStatement();
+
+		if (true) {
+			createTestTable(connection);
+			testActions(connection);
+			System.out.println("Done");
+			return;
+		}
 
 		createTableIfNotExists(statement);
 
@@ -39,6 +49,48 @@ public class Main {
 		scanner.nextLine();
 		
 		connection.close();
+	}
+
+	private static void createTestTable(Connection connection) throws SQLException {
+		Statement statement = connection.createStatement();
+		statement.execute("""
+				create table if not exists post (
+				id serial,
+				title varchar(50),
+				text varchar(50),
+				primary key (id)
+				);""");
+		statement.execute("create index if not exists title_index on post (title)");
+	}
+
+	private static void testActions(Connection connection) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement("""
+				insert into post (title, text) values (?, ?)
+				;""");
+
+		for (int i = 0; i < 100_000; i++) {
+			if (i % 1_000 == 0) {
+				System.out.println("Progress: " + i / 1_000. + "%");
+			}
+			ps.setString(1, getRandomString());
+			ps.setString(2, getRandomString());
+			ps.executeUpdate();
+		}
+		ps.setString(1, "shit1");
+		ps.setString(2, "shit1");
+		ps.executeUpdate();
+	}
+
+	private static String getRandomString() {
+		int begin = 'a';
+		int end = 'z' + 1;
+		int length = random.nextInt(6) + 3;
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < length; i++) {
+			char c = (char) (random.nextInt(end - begin) + begin);
+			sb.append(c);
+		}
+		return sb.toString();
 	}
 
 	private static boolean createTableIfNotExists(Statement statement) throws SQLException {
